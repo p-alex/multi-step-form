@@ -22,6 +22,13 @@
   font-style: normal;
 }
 
+:root {
+  --primary-color: hsl(213, 96%, 18%);
+  --error-color: hsl(354, 84%, 57%);
+  --border-color: hsl(231, 11%, 63%);
+  --border-color-active: var(--primary-color);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -37,6 +44,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: hsl(228, 100%, 84%);
 }
 
 input,

@@ -1,5 +1,11 @@
+import MultiStepForm from "./containers/MultiStepForm/MultiStepForm";
+
 function App() {
-  return <div>Hello World</div>;
+  return (
+    <main>
+      <MultiStepForm />
+    </main>
+  );
 }
 
 export default App;

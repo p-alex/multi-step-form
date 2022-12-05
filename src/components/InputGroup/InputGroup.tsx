@@ -19,18 +19,19 @@ const InputGroup = ({
   error,
   required: boolean,
 }: Props) => {
+  const formatedLabel = label.split(" ")[0];
   return (
     <div className="inputGroup">
       <div className="inputGroup__header">
-        <label htmlFor={label} className="inputGroup__label">
+        <label htmlFor={formatedLabel} className="inputGroup__label">
           {label}
         </label>
         {error && <p className="inputGroup__error">{error}</p>}
       </div>
       <input
         type={type}
-        id={label.split(" ").join("-")}
-        name={label.split(" ").join("-")}
+        id={formatedLabel}
+        name={formatedLabel}
         placeholder={placeholder}
         value={value}
         onChange={setValue}

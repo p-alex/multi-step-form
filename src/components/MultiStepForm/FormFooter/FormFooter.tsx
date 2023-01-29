@@ -1,22 +1,16 @@
-import { MAX_STEPS, STEP_TYPE } from "../../../hooks/useMultiStepForm";
-import Button from "../../../ui/Button/Button";
-import "./FormFooter.css";
+import { MAX_STEPS, STEP_TYPE } from '../../../hooks/useMultiStepForm';
+import Button from '../../../ui/Button/Button';
+import './FormFooter.css';
 
-export interface FormControlls {
+export interface FormControls {
   step: STEP_TYPE;
   stepIndex: number;
   goBack: () => void;
   goNext: () => void;
-  handleConfirm: () => void;
+  handleReset: () => void;
 }
 
-const FormFooter = ({
-  step,
-  stepIndex,
-  goBack,
-  goNext,
-  handleConfirm,
-}: FormControlls) => {
+const FormFooter = ({ step, stepIndex, goBack, goNext, handleReset }: FormControls) => {
   return (
     <footer className={`formFooter`}>
       <div className="formFooter__container">
@@ -30,9 +24,14 @@ const FormFooter = ({
             Next step
           </Button>
         )}
-        {step === "confirm" && (
+        {step === 'confirm' && (
           <Button type="button" variant="primary" onClick={goNext}>
             Confirm
+          </Button>
+        )}
+        {step === 'finish' && (
+          <Button type="button" variant="primary" onClick={handleReset}>
+            Reset
           </Button>
         )}
       </div>

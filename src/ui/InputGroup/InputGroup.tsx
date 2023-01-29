@@ -1,3 +1,4 @@
+import { ErrorsType } from "../../hooks/useMultiStepForm";
 import "./InputGroup.css";
 
 interface Props {
@@ -5,9 +6,9 @@ interface Props {
   type: string;
   placeholder?: string;
   value: string;
-  setValue: () => void;
+  setValue: (event: React.ChangeEvent<HTMLInputElement>) => void;
   error: string;
-  required?: boolean;
+  autoFocus?: boolean;
 }
 
 const InputGroup = ({
@@ -17,7 +18,7 @@ const InputGroup = ({
   value,
   setValue,
   error,
-  required: boolean,
+  autoFocus,
 }: Props) => {
   const formatedLabel = label.split(" ")[0];
   return (
@@ -36,6 +37,7 @@ const InputGroup = ({
         value={value}
         onChange={setValue}
         className={`inputGroup__input ${error && "error"}`}
+        autoFocus={autoFocus}
       />
     </div>
   );

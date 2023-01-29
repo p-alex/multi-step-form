@@ -1,0 +1,70 @@
+.form {
+  --form-padding: 20px;
+  position: absolute;
+  max-width: 940px;
+  background-color: white;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: 0 auto 90px auto;
+  transform: translateY(-50%);
+  padding: var(--form-padding);
+  border-radius: 10px;
+  min-height: 600px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.form__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 325px);
+  padding: 20px calc(40px - var(--form-padding) + 30px) 20px 40px;
+  width: 100%;
+}
+
+.form__header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0 40px 0;
+}
+
+.form__options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .form {
+    flex-direction: column;
+    position: relative;
+    transform: none;
+    background: none;
+    margin: 0 0 50px 0;
+    padding: 10px;
+  }
+  .form__container {
+    background-color: white;
+    margin: 70px auto;
+    border-radius: 10px;
+    width: 100%;
+    border-radius: 0;
+    padding: 30px;
+    border-radius: 10px;
+  }
+  .form__header {
+    margin: 0 0 20px 0;
+  }
+
+  .form__stepTitle {
+    font-size: 2rem;
+  }
+
+  .form__stepDescription {
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,72 @@
+.confirmStep {
+  background-color: var(--muted-bg-color);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.confirmStep__plan {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: solid 1px var(--border-color);
+  margin-bottom: 20px;
+}
+
+.confirmStep__planInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.confirmStep__planTitle {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.confirmStep__changeBtn {
+  color: var(--light-primary-color);
+  text-decoration: underline;
+  border: none;
+  background: none;
+  width: max-content;
+  cursor: pointer;
+}
+
+.confirmStep__planPrice {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.confirmStep__addon {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.confirmStep__addon:last-of-type {
+  margin-bottom: 0;
+}
+
+.confirmStep__addonName {
+  text-transform: capitalize;
+  color: var(--muted-text-color);
+}
+
+.confirmStep__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.confirmStep__totalText {
+  color: var(--muted-text-color);
+}
+
+.confirmStep__totalPrice {
+  font-size: 1.4rem;
+  color: var(--light-primary-color);
+  font-weight: 700;
+}

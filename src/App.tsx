@@ -1,4 +1,4 @@
-import MultiStepForm from "./containers/MultiStepForm/MultiStepForm";
+import MultiStepForm from "./components/MultiStepForm/MultiStepForm";
 
 function App() {
   return (

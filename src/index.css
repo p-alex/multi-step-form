@@ -1,14 +1,14 @@
 @font-face {
   font-family: "Ubuntu";
-  src: url("fonts/ubuntu-regular-webfont.woff") format("woff");
+  src: url("/assets/fonts/ubuntu-regular-webfont.woff") format("woff");
   font-weight: 400;
-  font-style: normal;
   font-display: optional;
+  font-style: normal;
 }
 
 @font-face {
   font-family: "Ubuntu";
-  src: url("/fonts/ubuntu-medium-webfont.woff") format("woff");
+  src: url("/assets/fonts/ubuntu-medium-webfont.woff") format("woff");
   font-weight: 500;
   font-display: optional;
   font-style: normal;
@@ -16,14 +16,18 @@
 
 @font-face {
   font-family: "Ubuntu";
-  src: url("/fonts/ubuntu-regular-webfont.woff") format("woff");
+  src: url("/assets/fonts/ubuntu-bold-webfont.woff") format("woff");
   font-weight: 700;
   font-display: optional;
   font-style: normal;
 }
 
 :root {
-  --primary-color: hsl(213, 96%, 18%);
+  --site-bg: #eef5ff;
+  --primary-color: #032958;
+  --light-primary-color: hsl(243, 100%, 62%);
+  --muted-text-color: #9c9da1;
+  --muted-bg-color: #f8f9fe;
   --error-color: hsl(354, 84%, 57%);
   --border-color: hsl(231, 11%, 63%);
   --border-color-active: var(--primary-color);
@@ -47,7 +51,23 @@
 }
 
 body {
-  background-color: hsl(228, 100%, 84%);
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+h2 {
+  font-size: 1.1rem;
+  color: hsl(231, 11%, 63%);
+  font-weight: 400;
+}
+
+body {
+  background-color: var(--site-bg);
 }
 
 input,

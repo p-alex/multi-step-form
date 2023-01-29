@@ -1,0 +1,71 @@
+.addonCheckbox {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  cursor: pointer;
+  padding: 20px;
+  border: solid 1px var(--border-color);
+  border-radius: 10px;
+  background-color: transparent;
+  transition: background 150ms ease-in-out, border 150ms ease-in-out;
+}
+
+.addonCheckbox.checked {
+  border: solid 1px var(--light-primary-color);
+  background-color: var(--muted-bg-color);
+}
+
+.addonCheckbox__checkbox {
+  width: 20px;
+  height: 20px;
+  border: solid 1px var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  transition: background 150ms ease-in-out, border 150ms ease-in-out;
+}
+
+.addonCheckbox__checkbox.checked {
+  background-color: var(--light-primary-color);
+  border: solid 1px var(--light-primary-color);
+}
+
+.addonCheckbox__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.addonCheckbox__title {
+  font-weight: 700;
+  color: var(--primary-color);
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.addonCheckbox__description {
+  color: var(--muted-text-color);
+  font-size: 1rem;
+  text-align: left;
+}
+
+.addonCheckbox__price {
+  color: var(--light-primary-color);
+}
+
+@media screen and (max-width: 800px) {
+  .addonCheckbox {
+    padding: 15px;
+    gap: 15px;
+  }
+  .addonCheckbox__info {
+    gap: 3px;
+  }
+}

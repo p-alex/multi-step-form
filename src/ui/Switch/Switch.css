@@ -1,0 +1,37 @@
+.switch {
+  position: relative;
+  width: 60px;
+  height: 27px;
+  border-radius: 500px;
+  background-color: var(--primary-color);
+  padding: 5px;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.switch__dot {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 150ms ease-in-out;
+}
+
+.switch__dot.on {
+  transform: translateX(215%);
+}
+
+@keyframes switchExpand {
+  0% {
+    transform: translateX(inherit) scaleX(1);
+  }
+  50% {
+    transform: translateX(inherit) scaleX(2);
+  }
+  100% {
+    transform: translateX(inherit) scaleX(1);
+  }
+}

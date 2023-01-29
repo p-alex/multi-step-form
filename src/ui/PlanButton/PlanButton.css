@@ -1,0 +1,48 @@
+.planButton {
+  border-radius: 8px;
+  border: solid 1px var(--border-color);
+  background: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px;
+  gap: 50px;
+}
+
+.planButton.selected {
+  border: solid 1px var(--primary-color);
+  background-color: hsl(231, 100%, 99%);
+}
+
+.planButton__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.planButton__title {
+  text-transform: capitalize;
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.planButton__price {
+  color: var(--muted-text-color);
+  font-weight: 500;
+}
+
+.planButton__offer {
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+@media screen and (max-width: 800px) {
+  .planButton {
+    flex-direction: row;
+    gap: 15px;
+  }
+}

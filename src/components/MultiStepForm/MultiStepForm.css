@@ -6,8 +6,8 @@
   top: 50%;
   left: 0;
   right: 0;
-  margin: 0 auto 90px auto;
   transform: translateY(-50%);
+  margin: 0 auto;
   padding: var(--form-padding);
   border-radius: 10px;
   min-height: 600px;
@@ -21,7 +21,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: calc(100% - 325px);
   padding: 20px calc(40px - var(--form-padding) + 30px) 20px 40px;
   width: 100%;
 }
@@ -30,7 +29,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: 10px 0 40px 0;
+  margin: 0 0 40px 0;
 }
 
 .form__options {
@@ -45,15 +44,13 @@
     position: relative;
     transform: none;
     background: none;
-    margin: 0 0 20px 0;
-    padding: 10px;
+    padding: 0 10px;
+    min-height: auto;
   }
   .form__container {
     background-color: white;
-    margin: 70px auto;
-    border-radius: 10px;
+    margin: 80px auto 100px 0;
     width: 100%;
-    border-radius: 0;
     padding: 30px;
     border-radius: 10px;
   }

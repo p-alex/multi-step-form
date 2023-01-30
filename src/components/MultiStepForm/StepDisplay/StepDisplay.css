@@ -39,7 +39,8 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  transition: background 150ms ease-in-out, color 150ms ease-in-out;
+  transition: background 150ms ease-in-out, color 150ms ease-in-out,
+    transform 150ms ease-in-out;
 }
 
 .stepDisplay__info {
@@ -64,6 +65,7 @@
   background-color: #bde1f9;
   color: var(--primary-color);
   border: solid 1px #bde1f9;
+  transform: scale(1.2);
 }
 
 @media screen and (max-width: 800px) {

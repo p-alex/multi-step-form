@@ -16,7 +16,7 @@ export const STEP_INFO = {
     description: 'Add-ons help enhance your gaming experience',
   },
   confirm: {
-    title: 'Finishing up',
+    title: 'Summary',
     description: 'Double-check everything looks OK before confirming',
   },
   finish: {

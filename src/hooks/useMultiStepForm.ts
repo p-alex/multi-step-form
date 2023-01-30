@@ -172,10 +172,20 @@ const useMultiStepForm = () => {
   };
 
   const handleResetForm = () => {
-    setFormState({ ...initialState });
+    setFormState({
+      name: '',
+      email: '',
+      phone: '',
+      plan: 'arcade',
+      isYearlyBilling: false,
+      addons: [],
+      price: 0,
+    });
     setStep('info');
     setStepIndex(0);
   };
+
+  console.log(formState);
 
   useEffect(() => {
     if (step === 'confirm') handleCalculatePrice();

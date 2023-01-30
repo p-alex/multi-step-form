@@ -6,7 +6,7 @@ import './MobileControls.css';
 const MobileControls = ({ stepIndex, goNext, goBack, handleReset }: FormControls) => {
   return (
     <div className="mobileControlls">
-      {stepIndex > 0 && (
+      {stepIndex > 0 && stepIndex < MAX_STEPS && (
         <Button variant="normal" type="button" onClick={goBack}>
           Go back
         </Button>
@@ -18,7 +18,7 @@ const MobileControls = ({ stepIndex, goNext, goBack, handleReset }: FormControls
       )}
       {stepIndex === MAX_STEPS && (
         <Button variant="primary" type="button" onClick={handleReset}>
-          Confirm
+          Finish
         </Button>
       )}
     </div>

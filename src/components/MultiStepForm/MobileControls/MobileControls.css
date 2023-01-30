@@ -3,12 +3,13 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 20px;
+  padding: 15px 20px;
   background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   display: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
 @media screen and (max-width: 800px) {

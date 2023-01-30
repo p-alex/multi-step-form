@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import z from 'zod';
 import { infoSchema } from '../schemas/infoSchema';
+import useVerifyZodSchema from './useVerifyZodSchema';
 
 export const STEP_INFO = {
   info: {
-    title: 'Personal info',
+    title: 'Your info',
     description: 'Please provide your name, email address, and phone number',
   },
   plan: {
-    title: 'Select your plan',
+    title: 'Select plan',
     description: 'You have the option of monthly or yearly billing',
   },
   addons: {
@@ -25,7 +25,7 @@ export const STEP_INFO = {
       'Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.',
   },
 };
-const STEP_LIST = Object.keys(STEP_INFO) as [keyof typeof STEP_INFO];
+export const STEP_INFO_LIST = Object.keys(STEP_INFO) as [keyof typeof STEP_INFO];
 export type STEP_TYPE = keyof typeof STEP_INFO;
 export const MAX_STEPS = Object.keys(STEP_INFO).length - 1;
 
@@ -83,7 +83,13 @@ const useMultiStepForm = () => {
   const [stepIndex, setStepIndex] = useState(0);
   const [formState, setFormState] = useState<FormState>(initialState);
 
-  const [errors, setErrors] = useState<ErrorsType>({});
+  const { name, email, phone } = formState;
+
+  const { verifySchema, fieldErrors } = useVerifyZodSchema<{
+    name: string;
+    email: string;
+    phone: string;
+  }>(infoSchema, { name, email, phone });
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormState((prevState) => ({
@@ -97,7 +103,7 @@ const useMultiStepForm = () => {
   };
 
   const handleSkipToStep = (step: STEP_TYPE) => {
-    const index = STEP_LIST.indexOf(step);
+    const index = STEP_INFO_LIST.indexOf(step);
     setStepIndex(index);
     setStep(step);
   };
@@ -109,36 +115,24 @@ const useMultiStepForm = () => {
     }));
   };
 
-  const goNext = async () => {
-    try {
-      if (step === 'info') {
-        infoSchema.parse({
-          name: formState.name,
-          email: formState.email,
-          phone: formState.phone,
-        });
-        const temp = stepIndex;
-        setStepIndex((prevState) => prevState + 1);
-        setStep(STEP_LIST[temp + 1]);
-      } else {
-        const temp = stepIndex;
-        setStepIndex((prevState) => prevState + 1);
-        setStep(STEP_LIST[temp + 1]);
-      }
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        const errors = error.flatten().fieldErrors as ErrorsType;
-        setErrors(errors);
-      } else {
-        throw error;
-      }
+  const goNext = () => {
+    if (step === 'info') {
+      const isValid = verifySchema();
+      if (!isValid) return;
+      const temp = stepIndex;
+      setStepIndex((prevState) => prevState + 1);
+      setStep(STEP_INFO_LIST[temp + 1]);
+    } else {
+      const temp = stepIndex;
+      setStepIndex((prevState) => prevState + 1);
+      setStep(STEP_INFO_LIST[temp + 1]);
     }
   };
 
   const goBack = () => {
     const temp = stepIndex;
     setStepIndex((prevState) => prevState - 1);
-    setStep(STEP_LIST[temp - 1]);
+    setStep(STEP_INFO_LIST[temp - 1]);
   };
 
   const handleAddAddon = (addon: AddonsType) => {
@@ -184,7 +178,6 @@ const useMultiStepForm = () => {
   };
 
   useEffect(() => {
-    if (step !== 'info') setErrors({});
     if (step === 'confirm') handleCalculatePrice();
   }, [step]);
 
@@ -201,7 +194,7 @@ const useMultiStepForm = () => {
     handleRemoveAddon,
     handleSkipToStep,
     handleResetForm,
-    errors,
+    fieldErrors,
   };
 };
 

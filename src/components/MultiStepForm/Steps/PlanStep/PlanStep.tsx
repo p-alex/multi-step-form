@@ -1,7 +1,7 @@
-import { FormState, PLANS, PLANS_LIST } from "../../../hooks/useMultiStepForm";
-import PlanButton from "../../../ui/PlanButton/PlanButton";
-import Switch from "../../../ui/Switch/Switch";
-import "./PlanStep.css";
+import { FormState, PLANS, PLANS_LIST } from '../../../../hooks/useMultiStepForm';
+import PlanButton from '../../../../ui/PlanButton/PlanButton';
+import Switch from '../../../../ui/Switch/Switch';
+import './PlanStep.css';
 
 interface PlanStep {
   formState: FormState;
@@ -9,11 +9,7 @@ interface PlanStep {
   handleSwitchBilling: () => void;
 }
 
-const PlanStep = ({
-  formState,
-  handleChangePlan,
-  handleSwitchBilling,
-}: PlanStep) => {
+const PlanStep = ({ formState, handleChangePlan, handleSwitchBilling }: PlanStep) => {
   return (
     <div className="form__options">
       <div className="planStep__plans">
@@ -31,22 +27,11 @@ const PlanStep = ({
         })}
       </div>
       <div className="planStep__billing">
-        <p
-          className={`planStep__billingType ${
-            !formState.isYearlyBilling && "active"
-          }`}
-        >
+        <p className={`planStep__billingType ${!formState.isYearlyBilling && 'active'}`}>
           Monthly
         </p>
-        <Switch
-          isOn={formState.isYearlyBilling}
-          onClick={handleSwitchBilling}
-        />
-        <p
-          className={`planStep__billingType ${
-            formState.isYearlyBilling && "active"
-          }`}
-        >
+        <Switch isOn={formState.isYearlyBilling} onClick={handleSwitchBilling} />
+        <p className={`planStep__billingType ${formState.isYearlyBilling && 'active'}`}>
           Yearly
         </p>
       </div>

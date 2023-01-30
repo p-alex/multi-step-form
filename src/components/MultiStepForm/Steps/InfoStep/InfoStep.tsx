@@ -1,20 +1,21 @@
-import { ErrorsType, FormState } from "../../../hooks/useMultiStepForm";
-import InputGroup from "../../../ui/InputGroup/InputGroup";
+import { FormState } from '../../../../hooks/useMultiStepForm';
+import { ZodVerifyFormErrors } from '../../../../hooks/useVerifyZodSchema';
+import InputGroup from '../../../../ui/InputGroup/InputGroup';
 
 interface InfoStep {
   formState: FormState;
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  errors: ErrorsType;
+  fieldErrors: ZodVerifyFormErrors<{ name: string; email: string; phone: string }>;
 }
 
-const InfoStep = ({ formState, handleInputChange, errors }: InfoStep) => {
+const InfoStep = ({ formState, handleInputChange, fieldErrors }: InfoStep) => {
   return (
     <div className="form__options">
       <InputGroup
         label="name"
         type="text"
         placeholder="e.g. Batman"
-        error={errors["name"] && errors["name"][0]}
+        error={fieldErrors?.name && fieldErrors.name[0]}
         value={formState.name}
         setValue={handleInputChange}
       />
@@ -22,7 +23,7 @@ const InfoStep = ({ formState, handleInputChange, errors }: InfoStep) => {
         label="email address"
         type="email"
         placeholder="e.g. batman@bat.com"
-        error={errors["email"] && errors["email"][0]}
+        error={fieldErrors?.email && fieldErrors.email[0]}
         value={formState.email}
         setValue={handleInputChange}
       />
@@ -30,7 +31,7 @@ const InfoStep = ({ formState, handleInputChange, errors }: InfoStep) => {
         label="phone number"
         type="text"
         placeholder="e.g. +1 234 567 890"
-        error={errors["phone"] && errors["phone"][0]}
+        error={fieldErrors?.phone && fieldErrors.phone[0]}
         value={formState.phone}
         setValue={handleInputChange}
       />

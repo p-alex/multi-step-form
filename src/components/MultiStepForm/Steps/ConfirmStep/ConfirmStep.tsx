@@ -4,9 +4,9 @@ import {
   PLANS,
   PlansType,
   STEP_TYPE,
-} from "../../../hooks/useMultiStepForm";
-import { convertPrice } from "../../../utils/convertPrice";
-import "./ConfirmStep.css";
+} from '../../../../hooks/useMultiStepForm';
+import { convertPrice } from '../../../../utils/convertPrice';
+import './ConfirmStep.css';
 
 interface ConfirmStep {
   isYearlyBilling: boolean;
@@ -29,11 +29,11 @@ const ConfirmStep = ({
         <div className="confirmStep__plan">
           <div className="confirmStep__planInfo">
             <p className="confirmStep__planTitle">
-              Arcade ({isYearlyBilling ? "Yearly" : "Monthly"})
+              Arcade ({isYearlyBilling ? 'Yearly' : 'Monthly'})
             </p>
             <button
               className="confirmStep__changeBtn"
-              onClick={() => handleSkipToStep("plan")}
+              onClick={() => handleSkipToStep('plan')}
             >
               Change
             </button>
@@ -46,9 +46,7 @@ const ConfirmStep = ({
           {addons.map((addon) => {
             return (
               <div className="confirmStep__addon" key={addon}>
-                <p className="confirmStep__addonName">
-                  {addon.replace("_", " ")}
-                </p>
+                <p className="confirmStep__addonName">{addon.replace('_', ' ')}</p>
                 <p className="confirmStepp__addonPrice">
                   +{convertPrice(isYearlyBilling, ADDONS[addon].price)}
                 </p>
@@ -59,10 +57,10 @@ const ConfirmStep = ({
       </div>
       <div className="confirmStep__total">
         <p className="confirmStep__totalText">
-          Total (per {isYearlyBilling ? "year" : "month"})
+          Total (per {isYearlyBilling ? 'year' : 'month'})
         </p>
         <p className="confirmStep__totalPrice">
-          ${totalPrice}/{isYearlyBilling ? "yr" : "mo"}
+          ${totalPrice}/{isYearlyBilling ? 'yr' : 'mo'}
         </p>
       </div>
     </div>

@@ -31,7 +31,7 @@ const FormFooter = ({ step, stepIndex, goBack, goNext, handleReset }: FormContro
         )}
         {step === 'finish' && (
           <Button type="button" variant="primary" onClick={handleReset}>
-            Reset
+            Finish
           </Button>
         )}
       </div>

@@ -1,13 +1,13 @@
 import './MultiStepForm.css';
 import StepDisplay from './StepDisplay/StepDisplay';
 import FormFooter from './FormFooter/FormFooter';
-import useMultiStepForm, { STEP_INFO } from '../../hooks/useMultiStepForm';
-import InfoStep from './InfoStep/InfoStep';
-import PlanStep from './PlanStep/PlanStep';
-import AddonStep from './AddonStep/AddonStep';
-import ConfirmStep from './ConfirmStep/ConfirmStep';
-import MobileControlls from './MobileControls/MobileControls';
-import FinishStep from './FinishStep/FinishStep';
+import useMultiStepForm, { MAX_STEPS, STEP_INFO } from '../../hooks/useMultiStepForm';
+import InfoStep from './Steps/InfoStep/InfoStep';
+import PlanStep from './Steps/PlanStep/PlanStep';
+import AddonStep from './Steps/AddonStep/AddonStep';
+import ConfirmStep from './Steps/ConfirmStep/ConfirmStep';
+import MobileControls from './MobileControls/MobileControls';
+import FinishStep from './Steps/FinishStep/FinishStep';
 
 const MultiStepForm = () => {
   const {
@@ -23,14 +23,14 @@ const MultiStepForm = () => {
     handleRemoveAddon,
     handleSkipToStep,
     handleResetForm,
-    errors,
+    fieldErrors,
   } = useMultiStepForm();
   return (
     <>
       <form className="form">
         <StepDisplay stepIndex={stepIndex} />
         <div className="form__container">
-          {step !== 'finish' && (
+          {stepIndex < MAX_STEPS && (
             <header className="form__header" aria-live="assertive">
               <h1 className="form__stepTitle">{STEP_INFO[step].title}</h1>
               <h2 className="form__stepDescription">{STEP_INFO[step].description}</h2>
@@ -40,7 +40,7 @@ const MultiStepForm = () => {
             <InfoStep
               formState={formState}
               handleInputChange={handleInputChange}
-              errors={errors}
+              fieldErrors={fieldErrors}
             />
           )}
           {step === 'plan' && (
@@ -76,7 +76,7 @@ const MultiStepForm = () => {
           />
         </div>
       </form>
-      <MobileControlls
+      <MobileControls
         step={step}
         stepIndex={stepIndex}
         goBack={goBack}

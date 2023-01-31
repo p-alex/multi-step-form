@@ -32,6 +32,10 @@
   margin: 0 0 40px 0;
 }
 
+.form__stepTitle {
+  color: var(--primary-color);
+}
+
 .form__options {
   display: flex;
   flex-direction: column;

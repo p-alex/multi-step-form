@@ -127,12 +127,14 @@ const useMultiStepForm = () => {
       setStepIndex((prevState) => prevState + 1);
       setStep(STEP_INFO_LIST[temp + 1]);
     }
+    window.scrollTo({ top: 0 });
   };
 
   const goBack = () => {
     const temp = stepIndex;
     setStepIndex((prevState) => prevState - 1);
     setStep(STEP_INFO_LIST[temp - 1]);
+    window.scrollTo({ top: 0 });
   };
 
   const handleAddAddon = (addon: AddonsType) => {

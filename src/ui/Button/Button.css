@@ -25,3 +25,6 @@
 .button.primary:hover {
   background-color: hsl(243, 100%, 62%);
 }
+.button.small {
+  padding: 8px 20px;
+}

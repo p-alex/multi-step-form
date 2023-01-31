@@ -31,6 +31,7 @@
   --error-color: hsl(354, 84%, 57%);
   --border-color: hsl(231, 11%, 63%);
   --border-color-active: var(--primary-color);
+  --mobile-controls-height: 80px;
 }
 
 * {
@@ -47,6 +48,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

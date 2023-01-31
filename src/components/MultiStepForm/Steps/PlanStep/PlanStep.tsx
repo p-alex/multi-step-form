@@ -12,7 +12,11 @@ interface PlanStep {
 const PlanStep = ({ formState, handleChangePlan, handleSwitchBilling }: PlanStep) => {
   return (
     <div className="form__options">
-      <div className="planStep__plans">
+      <div
+        className={
+          formState.isYearlyBilling ? 'planStep__plans yearly' : 'planStep__plans'
+        }
+      >
         {PLANS_LIST.map((plan, index) => {
           return (
             <PlanButton

@@ -1,5 +1,5 @@
-import { PLANS, PlansType } from "../../hooks/useMultiStepForm";
-import "./PlanButton.css";
+import { PLANS, PlansType } from '../../hooks/useMultiStepForm';
+import './PlanButton.css';
 
 interface Props {
   isSelected: boolean;
@@ -9,23 +9,17 @@ interface Props {
   autoFocus?: boolean;
 }
 
-const PlanButton = ({
-  isSelected,
-  plan,
-  isYearlyBilling,
-  onClick,
-  autoFocus,
-}: Props) => {
+const PlanButton = ({ isSelected, plan, isYearlyBilling, onClick, autoFocus }: Props) => {
   return (
     <button
       type="button"
-      role={"checkbox"}
+      role={'checkbox'}
       aria-checked={isSelected}
       aria-label={`${plan} plan $${
         !isYearlyBilling ? PLANS[plan] : PLANS[plan] * 10
-      } per ${isYearlyBilling ? "year with 2 months free" : "month"}`}
+      } per ${isYearlyBilling ? 'year with 2 months free' : 'month'}`}
       onClick={onClick}
-      className={`planButton ${isSelected && "selected"}`}
+      className={`planButton ${isSelected && 'selected'}`}
       autoFocus={autoFocus}
     >
       <img
@@ -40,9 +34,7 @@ const PlanButton = ({
         <p className="planButton__price">
           ${!isYearlyBilling ? `${PLANS[plan]}/mo` : `${PLANS[plan] * 10}/yr`}
         </p>
-        {isYearlyBilling && (
-          <small className="planButton__offer">2 months free</small>
-        )}
+        {isYearlyBilling && <small className="planButton__offer">2 months free</small>}
       </div>
     </button>
   );

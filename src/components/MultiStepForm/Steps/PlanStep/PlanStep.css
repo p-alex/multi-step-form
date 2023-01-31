@@ -5,6 +5,10 @@
   margin-bottom: 20px;
 }
 
+.planStep__plans.yearly {
+  margin-bottom: -1px;
+}
+
 .planStep__billing {
   display: flex;
   width: 100%;
@@ -31,5 +35,11 @@
 @media screen and (max-width: 800px) {
   .planStep__plans {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .planStep__plans {
+    margin-bottom: 71px;
+  }
+  .planStep__plans.yearly {
+    margin-bottom: 8px;
   }
 }

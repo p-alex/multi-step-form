@@ -46,10 +46,11 @@
     background: none;
     padding: 0 10px;
     min-height: auto;
+    margin-bottom: 95px;
   }
   .form__container {
     background-color: white;
-    margin: 80px auto 100px 0;
+    margin: 80px auto 0 0;
     width: 100%;
     padding: 30px;
     border-radius: 10px;

@@ -12,7 +12,7 @@ interface AddonStep {
 const AddonStep = ({ formState, handleAddAddon, handleRemoveAddon }: AddonStep) => {
   return (
     <div className="form__options">
-      {ADDONS_LIST.map((addon) => {
+      {ADDONS_LIST.map((addon, index) => {
         return (
           <AddonCheckbox
             key={addon}
@@ -22,6 +22,7 @@ const AddonStep = ({ formState, handleAddAddon, handleRemoveAddon }: AddonStep) 
             isChecked={formState.addons.findIndex((a) => a === addon) !== -1}
             handleAddAddon={() => handleAddAddon(addon)}
             handleRemoveAddon={() => handleRemoveAddon(addon)}
+            autoFocus={index === 0}
           />
         );
       })}

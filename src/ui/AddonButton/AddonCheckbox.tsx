@@ -1,11 +1,12 @@
-import { ADDONS } from "../../hooks/useMultiStepForm";
-import "./AddonCheckbox.css";
+import { ADDONS } from '../../hooks/useMultiStepForm';
+import './AddonCheckbox.css';
 
 interface AddonCheckbox {
   title: string;
   description: string;
   price: number;
   isChecked: boolean;
+  autoFocus: boolean;
   handleAddAddon: () => void;
   handleRemoveAddon: () => void;
 }
@@ -15,19 +16,21 @@ const AddonCheckbox = ({
   description,
   price,
   isChecked,
+  autoFocus,
   handleAddAddon,
   handleRemoveAddon,
 }: AddonCheckbox) => {
   return (
     <button
-      className={`addonCheckbox ${isChecked && "checked"}`}
-      role={"checkbox"}
+      className={`addonCheckbox ${isChecked && 'checked'}`}
+      role={'checkbox'}
       type="button"
       aria-checked={isChecked}
       aria-label={`${title}. ${description} for ${price} dollars per month.`}
       onClick={isChecked ? handleRemoveAddon : handleAddAddon}
+      autoFocus={autoFocus}
     >
-      <div className={`addonCheckbox__checkbox ${isChecked && "checked"}`}>
+      <div className={`addonCheckbox__checkbox ${isChecked && 'checked'}`}>
         <img src="/images/icon-checkmark.svg" alt="" />
       </div>
       <div className="addonCheckbox__info">
